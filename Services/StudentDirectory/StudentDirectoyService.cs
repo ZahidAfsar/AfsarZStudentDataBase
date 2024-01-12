@@ -28,10 +28,10 @@ namespace AfsarZStudentDataBase.Services.StudentDirectoryService;
 
     public List<Student> DeleteStudent(string nameFirst)
     {
-        var existingStudent = _db.Students.FirstOrDefault(firstName => firstName.firstName == nameFirst);
+        var foundStudent = _db.Students.FirstOrDefault(firstName => firstName.firstName == nameFirst);
 
-        if(existingStudent != null){
-            _db.Students.Remove(existingStudent);
+        if(foundStudent != null){
+            _db.Students.Remove(foundStudent);
             _db.SaveChanges();
         }
 
